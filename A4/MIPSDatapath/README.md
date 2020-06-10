@@ -1,22 +1,22 @@
-MIPS-Datapath
+# MIPS-Datapath
 
-Supported instructions:
+## Supported instructions:
 
-- Arithmetic: add, addi, sub
-- Load/Store: lw, sw
-- Logic: and, andi, or, ori, nor
-- Control flow: beq, bne, jal, jr, j
-- Comparison: slt
+- **Arithmetic**: add, addi, sub
+- **Load/Store**: lw, sw
+- **Logic**: and, andi, or, ori, nor
+- **Control flow**: beq, bne, jal, jr, j
+- **Comparison**: slt
 
-##Implementation
+## Implementation
 
-###Directories Structure:
- - test: Contains test benches for all modules
- - program: Contains test for different instructions types and the main program in test.txt file.
- - lib: Contains the common module that is used in other different modules.
+## Directories Structure:
+ - `test`: Contains test benches for all modules
+ - `program`: Contains test for different instructions types and the main program in test.txt file.
+ - `lib`: Contains the common module that is used in other different modules.
  - Rest of dirs: Each contains its module.
  
-###Code Structure:
+## Code Structure:
   most of the code is designed in both structural and behavioral style, however instruction and data memory
   is designed in the behavioral code style.
   
@@ -35,25 +35,34 @@ Supported instructions:
 
       | RegDst | ALUSrc | memToReg | regWrite | memRead | memWrite | branch | branch_ne | jump | aluOP
 ----- | ------ | ------ | -------- | -------- | ------- | -------- | ------ | --------- | ---- | -----
+
 R Format | 01 | 0 | 00 | 1 | 0 | 0 | 0 | 0  | 0 | 010 
+
 lw | 00 | 1 | 01 | 1 | 1 | 0| 0 | 0  | 0 | 000 
+
 sw | 00 | 1 | 00 | 0 | 0 | 1 | 0 | 0  | 0 | 000 
+
 beq | 00 | 0 | 00 | 0 | 0 | 0 | 1 | 0  | 0 | 001
+
 bne | 00 | 0 | 00 | 0 | 0 | 0 | 0 | 1  | 0 | 001
+
 J | 00 | 0 | 00 | 0 | 0 | 0 | 0 | 0  | 1 | 000
+
 Jal | 10 | 0 | 10 | 1 | 0 | 0 | 0 | 0  | 1 | 000
+
 addi | 00 | 1 | 00 | 1 | 0 | 0 | 0 | 0 | 0 | 000
+
 andi | 00 | 1 | 00 | 1 | 0 | 0 | 0 | 0 | 0 | 011
+
 ori | 00  | 1 | 00 | 1 | 0 | 0 | 0 | 0 | 0 | 100
   
-##Running Tests
+## Running Tests
 
 Each individual module have his own test under test sub-directory,
 To run them change dir to test and compile&run the testbench, eg.
     
     $ iverlog -o alu_test alu_test.v
     $ vvp alu_test
-
 
 
 To compile/run a full programme:
