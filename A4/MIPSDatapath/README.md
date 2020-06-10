@@ -31,9 +31,10 @@
 
   - **RF**: Register File
   
-  - **Control Signals**:
+ ## Control Signals**:
 
       | RegDst | ALUSrc | memToReg | regWrite | memRead | memWrite | branch | branch_ne | jump | aluOP
+
 ----- | ------ | ------ | -------- | -------- | ------- | -------- | ------ | --------- | ---- | -----
 
 R Format | 01 | 0 | 00 | 1 | 0 | 0 | 0 | 0  | 0 | 010 
@@ -74,7 +75,7 @@ To compile/run a full programme:
     $ iverilog -o cpu_test cpu_test.v 
     $ vvp cpu_test
     
-Notice that it through a warning, but there no worries about that. the registers that is affected from this code is $t0 = 10, $t1 = 10 ,$s0 = 10 and $ra = 3.
+The registers that is affected from this code is $t0 = 10, $t1 = 10 ,$s0 = 10 and $ra = 3.
 
 You can also look at the output wave using gtkwave 
 run this cmd
