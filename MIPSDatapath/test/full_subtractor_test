@@ -1,0 +1,66 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1353fd0 .scope module, "test" "test" 2 3;
+ .timescale 0 0;
+v0x1366f90_0 .var "a", 0 0;
+v0x1367030_0 .var "b", 0 0;
+v0x13670e0_0 .var "bin", 0 0;
+v0x1367190_0 .net "bout", 0 0, L_0x1367770; 1 drivers
+v0x1367270_0 .net "d", 0 0, L_0x1367400; 1 drivers
+S_0x13540c0 .scope module, "subtractor" "full_subtractor" 2 7, 3 1, S_0x1353fd0;
+ .timescale 0 0;
+L_0x1367320 .functor XOR 1, v0x1366f90_0, v0x1367030_0, C4<0>, C4<0>;
+L_0x1367400 .functor XOR 1, L_0x1367320, v0x13670e0_0, C4<0>, C4<0>;
+L_0x1367550 .functor NOT 1, L_0x1367320, C4<0>, C4<0>, C4<0>;
+L_0x13675b0 .functor AND 1, L_0x1367550, v0x13670e0_0, C4<1>, C4<1>;
+L_0x1367660 .functor NOT 1, v0x1367030_0, C4<0>, C4<0>, C4<0>;
+L_0x13676c0 .functor AND 1, L_0x1367660, v0x1366f90_0, C4<1>, C4<1>;
+L_0x1367770 .functor OR 1, L_0x13676c0, L_0x13675b0, C4<0>, C4<0>;
+v0x1331e30_0 .net "Bor_in", 0 0, v0x13670e0_0; 1 drivers
+v0x13668f0_0 .alias "Bor_out", 0 0, v0x1367190_0;
+v0x1366990_0 .net "a", 0 0, v0x1366f90_0; 1 drivers
+v0x1366a30_0 .net "b", 0 0, v0x1367030_0; 1 drivers
+v0x1366ae0_0 .net "b_bar", 0 0, L_0x1367660; 1 drivers
+v0x1366b80_0 .alias "d", 0 0, v0x1367270_0;
+v0x1366c60_0 .net "int1", 0 0, L_0x1367320; 1 drivers
+v0x1366d00_0 .net "int2", 0 0, L_0x1367550; 1 drivers
+v0x1366df0_0 .net "int3", 0 0, L_0x13675b0; 1 drivers
+v0x1366e90_0 .net "int4", 0 0, L_0x13676c0; 1 drivers
+    .scope S_0x1353fd0;
+T_0 ;
+    %vpi_call 2 15 "$monitor", $time, ":  %b  %b  %b | %b %b", v0x1366f90_0, v0x1367030_0, v0x13670e0_0, v0x1367190_0, v0x1367270_0;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 0, 1;
+    %set/v v0x1367030_0, 0, 1;
+    %set/v v0x13670e0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 0, 1;
+    %set/v v0x1367030_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 0, 1;
+    %set/v v0x1367030_0, 0, 1;
+    %set/v v0x13670e0_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 0, 1;
+    %set/v v0x1367030_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x1366f90_0, 1, 1;
+    %delay 7, 0;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "full_subtractor_test.v";
+    "./../lib/full_subtractor.v";
