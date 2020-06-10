@@ -3,13 +3,13 @@
 ## CS250 Computer Organisation and Architecture
 
 ## Team:
-1)Sai Sree Harsha   (181CO146)
+1) Sai Sree Harsha    (181CO146)
 
-2)K Krishna Swaroop (181CO125)
+2) K Krishna Swaroop (181CO125)
 
-3)Aditya Sohoni     (181CO203)
+3) Aditya Sohoni     (181CO203)
 
-4)Videh Raj Nema    (181C0158)
+4) Videh Raj Nema    (181C0158)
 
 
 ## A1
