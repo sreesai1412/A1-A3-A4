@@ -6,7 +6,7 @@
 
 //Date:14/06/2020
 //Question No.:5
-//Program:Implements the MIPS-I-Format Instructions
+//Program:Implements the uPower-I-Format Instructions
 
 `timescale 1ns/1ns
 //REGISTER FILE
@@ -83,7 +83,7 @@ module tb;
     #5;
     #5 en_write=1; address=1; idata= 212;
     #10;
-    #5 instr = 32'b00100000001000100000000000000001;
+    #5 instr = 32'b00111001011011100000000000001111;
     #10;
     #5 en_write=0; address=rs;
     #10;
@@ -96,7 +96,7 @@ module tb;
     #10;
     #5 data3=data;
     #10;
-    #5 instr = 32'b00100000001000100000000000000001;
+    #5 instr = 32'00111100001001000000000000000101;
     #10;
     #5 en_write=0; address=rs;
     #10;
@@ -110,7 +110,7 @@ module tb;
     #10;
     #5 data3=data;
     #10;
-    #5 instr = 32'b00110000001000100000000000000001;
+    #5 instr = 32'01110001011011100000000000001111;
     #10;
     #5 en_write=0; address=rs;
     #10;
@@ -124,7 +124,7 @@ module tb;
     #10;
     #5 data3=data;
     #10;
-    #5 instr = 32'b00110100001000100000000000000001;
+    #5 instr = 32'01100000001001000000000000000101;
     #10;
     #5 en_write=0; address=rs;
     #10;
